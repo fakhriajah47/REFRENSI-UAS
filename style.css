@@ -1,0 +1,26 @@
+/* Tombol dengan gambar/icon */
+a, form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    font-size: 1.4rem; /* Perbesar teks */
+    font-weight: bold;
+    color: white;
+    background-color: #ff5722; /* Warna mencolok */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+a:hover, form button:hover {
+    transform: scale(1.1); /* Efek membesar */
+}
+
+a img, form button img {
+    width: 30px; /* Tambahkan ikon kecil */
+    height: 30px;
+    margin-right: 10px;
+}

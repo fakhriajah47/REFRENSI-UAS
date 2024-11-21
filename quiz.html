@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis {{ kategori }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Kategori: {{ kategori }}</h1>
+    <p>Skor Anda: {{ skor }}</p>
+    <form method="POST">
+        <p>{{ pertanyaan }}</p>
+        <input type="text" name="jawaban" placeholder="Jawaban Anda" required>
+        <input type="hidden" name="index" value="{{ index }}">
+        <br><br>
+        <button type="submit">Jawab</button>
+    </form>
+    <div class="quiz-box">
+        <h2>Skor Akhir:</h2>
+        <p>Anda mendapatkan skor: <strong>{{ skor }}</strong>!</p>
+        <p style="font-size: 1.5rem; color: #4CAF50;">Selamat! Kamu hebat!</p>
+        <a href="/">Main Lagi</a>
+    </div>
+    <div id="timer">Waktu tersisa: <span id="time">10</span> detik</div>
+    <form method="POST">
+        <p>{{ pertanyaan }}</p>
+        <input type="text" name="jawaban" placeholder="Masukkan jawaban Anda" required>
+        <input type="hidden" name="index" value="{{ index }}">
+        <button type="submit">Kirim Jawaban</button>
+    </form>
+    <script>
+        let timeLeft = 10; // Waktu dalam detik
+        const timerElement = document.getElementById("time");
+        const form = document.querySelector("form");
+    
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                form.submit(); // Kirim jawaban otomatis
+            }
+        }, 1000); // Hitung mundur setiap detik
+    </script>
+        
+</body>
+</html>

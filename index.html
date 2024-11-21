@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="/static/img/logo.png" alt="Logo Kuis">
+    </header>
+    <h1>Selamat Datang di Kuis Interaktif!</h1>
+    <p>Pilih kategori untuk memulai kuis:</p>
+    {% for kategori in kuis %}
+    <a href="/kategori/{{ kategori }}">{{ kategori }}</a>
+    {% endfor %}
+</body>
+</html>
